@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-'''script for displaying all open TCP ports (listening and non-listening)'''
+#script for displaying all open TCP ports (listening and non-listening)
 
 ss -ltnp
