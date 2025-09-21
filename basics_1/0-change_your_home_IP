@@ -1,16 +1,22 @@
 #!/usr/bin/env bash
-# Bash script to configure hosts
-# localhost -> 127.0.0.2
-# facebook.com -> 8.8.8.8
+# File: 0-change_your_home_IP
+# Purpose: change localhost to 127.0.0.2 and facebook.com to 8.8.8.8
 
-# Skriptə icazə yoxdursa, veririk
-chmod +x "$0"
+# Check if running as root
+if [[ $EUID -ne 0 ]]; then
+   echo "Please run this script with sudo"
+   exit 1
+fi
 
-# Köhnə localhost xəttini silirik
-sudo sed -i '/127\.0\.0\.1\s\+localhost/d' /etc/hosts
+# Remove any existing localhost entry with 127.0.0.1
+sed -i '/127\.0\.0\.1\s\+localhost/d' /etc/hosts
 
-# Yeni hostları əlavə edirik
-echo -e "127.0.0.2\tlocalhost\n8.8.8.8\tfacebook.com" | sudo tee -a /etc/hosts
+# Remove any existing facebook.com entry
+sed -i '/facebook\.com/d' /etc/hosts
 
-echo "Yeni hostlar əlavə olundu:"
+# Add new entries
+echo -e "127.0.0.2\tlocalhost\n8.8.8.8\tfacebook.com" >> /etc/hosts
+
+# Show result
+echo "Updated /etc/hosts:"
 grep -E "localhost|facebook.com" /etc/hosts
