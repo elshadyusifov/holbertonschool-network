@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
-# Bash script that configures an Ubuntu server with the below requirements.
-# localhost resolves to 127.0.0.2
-# facebook.com resolves to 8.8.8.8
+# Bash script to configure hosts
+# localhost -> 127.0.0.2
+# facebook.com -> 8.8.8.8
+
+# Skriptə icazə yoxdursa, veririk
+chmod +x "$0"
+
+# Köhnə localhost xəttini silirik
+sudo sed -i '/127\.0\.0\.1\s\+localhost/d' /etc/hosts
+
+# Yeni hostları əlavə edirik
 echo -e "127.0.0.2\tlocalhost\n8.8.8.8\tfacebook.com" | sudo tee -a /etc/hosts
+
+echo "Yeni hostlar əlavə olundu:"
+grep -E "localhost|facebook.com" /etc/hosts
