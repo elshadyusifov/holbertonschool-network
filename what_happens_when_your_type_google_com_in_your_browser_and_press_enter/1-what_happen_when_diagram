@@ -1,0 +1,14 @@
+# Diagram illustrating the flow of a request for https://www.google.com
+
+**Diagram URL:** [https://www.mermaidchart.com/app/projects/fd905412-3dfc-46d1-9be3-be0d3bdd1834/diagrams/9dbf2d69-56c7-4a0b-a80d-8cb84901f901/share/invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudElEIjoiOWRiZjJkNjktNTZjNy00YTBiLWE4MGQtOGNiODQ5MDFmOTAxIiwiYWNjZXNzIjoiRWRpdCIsImlhdCI6MTc1OTA3ODY5N30.5RxZwhT0NrjgsRYIURWirQcdDTN7yRwfcv1QUk1X5e4]
+
+This diagram shows the following flow:
+
+1. DNS resolution
+2. Traffic hitting server IP on the correct port
+3. Encrypted HTTPS traffic
+4. Traffic passing through a firewall
+5. Request distributed via a load balancer
+6. Web server serving the web page
+7. Application server generating the web page
+8. Application server requesting data from the database
