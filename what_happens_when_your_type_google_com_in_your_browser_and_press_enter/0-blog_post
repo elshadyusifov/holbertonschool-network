@@ -1,0 +1,44 @@
+# What happens when you type https://www.google.com in your browser
+
+**Blog Post:**
+
+When you type `https://www.google.com` in your browser and press Enter, a complex sequence of events happens behind the scenes that involves DNS, networking, security, load balancing, and server-side processing. Let’s break it down step by step:
+
+### 1. DNS Request
+The browser first checks its cache for the IP of `www.google.com`. If not found, it queries a DNS server to resolve the domain name to an IP address (e.g., 142.250.190.100).
+
+### 2. TCP/IP
+The browser opens a TCP connection to Google’s server using the resolved IP. TCP ensures reliable packet delivery.
+
+### 3. Firewall
+The request passes through firewalls (local, network, and server side) that allow or block traffic based on security rules.
+
+### 4. HTTPS / SSL
+Since the URL uses HTTPS, the browser initiates an SSL/TLS handshake to encrypt data between the browser and server.
+
+### 5. Load Balancer
+Google’s load balancer distributes incoming requests across multiple servers to balance load and ensure high availability.
+
+### 6. Web Server
+The web server (e.g., Nginx) serves static content and forwards dynamic requests to the application server.
+
+### 7. Application Server
+The application server executes backend logic, processes queries, interacts with databases, and prepares the response.
+
+### 8. Database
+Dynamic data is fetched from a database. The application server queries it, receives the data, formats it, and sends it back to the web server.
+
+### 9. Response to Browser
+The web server sends the response over HTTPS. The browser renders the page, executes JavaScript, loads images, and finally displays the Google homepage.
+
+---
+
+**Published Blog URL:** https://www.linkedin.com/pulse/what-happens-when-you-type-httpswwwgooglecom-your-browser-yusifov-oae2e
+
+---
+
+**GitHub repository info:**
+
+- Repository: `holbertonschool-network`  
+- Directory: `what_happens_when_your_type_google_com_in_your_browser_and_press_enter`  
+- File: `0-blog_post`
